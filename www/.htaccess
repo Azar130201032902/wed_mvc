@@ -11,7 +11,10 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
-
+# ROUTE LISTE DES POSTS
+# PATTERN: /posts
+# URL: index.php
+RewriteRule ^posts$ index.php [L]
 
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

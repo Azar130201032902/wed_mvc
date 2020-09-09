@@ -13,3 +13,6 @@
   // INITIALISATION DES ZONES DYNAMIQUES
       $content = '';
       $title = '';
+
+  // TITRE
+      define('TITRE_POSTS_INDEX', "Home");
