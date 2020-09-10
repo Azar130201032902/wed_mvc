@@ -17,3 +17,15 @@ use App\Modeles\PostsModele;
       include_once '../app/vues/posts/index.php';
     $content = ob_get_clean();
   }
+
+  function showAction(\PDO $connexion, int $id) {
+    // Je demande au modèle le détail d'un post
+      include_once '../app/modeles/postsModele.php';
+      $post = PostsModele\findOneById($connexion, $id);
+    // Je la mets dans le $content
+    GLOBAL $content, $title;
+    $title = $post['postTitle'];
+    ob_start();
+      include_once '../app/vues/posts/show.php';
+    $content = ob_get_clean();
+  }
