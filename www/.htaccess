@@ -11,20 +11,26 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
-# ROUTE CONTACT
-# PATTERN: /contact
-# URL: index.php?contact
-RewriteRule ^contact$ index.php?contact [L]
+  # ROUTE CONTACT
+  # PATTERN: contact
+  # URL: index.php?contact
+  RewriteRule ^contact$ index.php?contact [L]
 
-# ROUTE DETAIL D'UN POST
-# PATTERN: /post/id
-# URL: index.php?postId=xxx
-RewriteRule ^posts\/([1-9][0-9]*)$ index.php?postId=$1 [L]
+  # ROUTE DES POSTS ------------------------------------------
+  # ROUTE RECHERCHE D'UN POST
+  # PATTERN: posts/search
+  # URL: index.php?posts=search
+  RewriteRule ^posts\/search$ index.php?posts=search[L]
 
-# ROUTE LISTE DES POSTS
-# PATTERN: /posts
-# URL: index.php
-RewriteRule ^posts$ index.php [L]
+  # ROUTE DETAIL D'UN POST
+  # PATTERN: post/id
+  # URL: index.php?post=show&id=xxx
+  RewriteRule ^posts\/([1-9][0-9]*)$ index.php?posts=show&id=$1 [L]
+
+  # ROUTE LISTE DES POSTS
+  # PATTERN: /posts
+  # URL: index.php
+  RewriteRule ^posts$ index.php [L]
 
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

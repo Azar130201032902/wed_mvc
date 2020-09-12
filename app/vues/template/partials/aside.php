@@ -6,10 +6,10 @@
 <div class="col-lg-4">
     <div class="blog_right_sidebar">
         <aside class="single_sidebar_widget search_widget">
-            <form action="#">
+            <form action="posts/search" method="get">
                 <div class="form-group">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder='Search Keyword'
+                        <input type="text" name="search" class="form-control" placeholder='Search Keyword'
                             onfocus="this.placeholder = ''"
                             onblur="this.placeholder = 'Search Keyword'">
                         <div class="input-group-append">
