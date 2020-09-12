@@ -26,6 +26,7 @@ namespace App\Modeles\PostsModele;
                    posts.content AS postContent,
                    posts.created_at AS postDate,
                    posts.image AS postImage,
+                   posts.author_id AS authorId,
                    categories.name AS ctgName
            FROM posts
            JOIN categories ON posts.categorie_id = categories.id

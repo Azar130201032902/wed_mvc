@@ -4,7 +4,7 @@
   CONTROLEUR DES POSTS
  */
 namespace App\Controleurs\PostsControleur;
-use App\Modeles\PostsModele;
+use \App\Modeles\PostsModele;
 
   function indexAction(\PDO $connexion) {
     // Je demande au modèle la liste des posts
@@ -22,6 +22,11 @@ use App\Modeles\PostsModele;
     // Je demande au modèle le détail d'un post
       include_once '../app/modeles/postsModele.php';
       $post = PostsModele\findOneById($connexion, $id);
+
+    // Je demande au modèle l'autheur du post
+      include_once '../app/modeles/authorsModele.php';
+      $author = \App\Modeles\AuthorsModele\findOneById($connexion, $post['authorId']);
+
     // Je la mets dans le $content
     GLOBAL $content, $title;
     $title = $post['postTitle'];
