@@ -38,6 +38,7 @@ namespace App\Modeles\PostsModele;
   }
 
   function findAllBySearch(\PDO $connexion, string $search) {
+    $words = explode(' ', trim($search));
     $sql = "SELECT DISTINCT posts.id AS postId,
                             posts.title AS postTitle,
                             posts.content AS postContent,
@@ -48,13 +49,20 @@ namespace App\Modeles\PostsModele;
             FROM posts
             JOIN authors ON posts.author_id = authors.id
             JOIN categories ON posts.categorie_id = categories.id
-            WHERE posts.title       LIKE :search
-               OR posts.content     LIKE :search
-               OR categories.name   LIKE :search
-               OR authors.firstname LIKE :search
-               OR authors.lastname  LIKE :search;";
+            WHERE 1 = 0 ";
+    for ($i=0; $i<count($words); $i++):
+       $sql .= "OR posts.title       LIKE :word$i
+                OR posts.content     LIKE :word$i
+                OR categories.name   LIKE :word$i
+                OR authors.firstname LIKE :word$i
+                OR authors.lastname  LIKE :word$i ";
+    endfor;
+    $sql .= ";";
+
     $rs = $connexion->prepare($sql);
-    $rs->bindValue(":search", '%'.$search.'%', \PDO::PARAM_STR);
+    for ($i=0; $i<count($words); $i++):
+      $rs->bindValue(":word$i", '%'.$words[$i].'%', \PDO::PARAM_STR);
+    endfor;
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
-  }
+  }	
