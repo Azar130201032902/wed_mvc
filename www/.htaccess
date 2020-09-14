@@ -20,11 +20,11 @@ RewriteEngine on
   # ROUTE RECHERCHE D'UN POST
   # PATTERN: posts/search
   # URL: index.php?posts=search
-  RewriteRule ^posts\/search$ index.php?posts=search[L]
+  RewriteRule ^posts\/search$ index.php?posts=search [L]
 
   # ROUTE DETAIL D'UN POST
   # PATTERN: post/id
-  # URL: index.php?post=show&id=xxx
+  # URL: index.php?posts=show&id=xxx
   RewriteRule ^posts\/([1-9][0-9]*)$ index.php?posts=show&id=$1 [L]
 
   # ROUTE LISTE DES POSTS

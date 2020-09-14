@@ -14,7 +14,7 @@
     ob_start();
       include_once '../app/vues/template/partials/contact.php';
     $content = ob_get_clean();
-    
+
   elseif(isset($_GET['posts'])):
     include_once '../app/routeurs/postsRouteur.php';
 

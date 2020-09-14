@@ -34,3 +34,15 @@ use \App\Modeles\PostsModele;
       include_once '../app/vues/posts/show.php';
     $content = ob_get_clean();
   }
+
+  function searchAction(\PDO $connexion, string $search) {
+    // Je demande la liste des posts au modèles
+      include_once '../app/modeles/postsModele.php';
+      $posts = PostsModele\findAllBySearch($connexion, $search);
+    // Je charge la vue search dans $content
+      GLOBAL $content, $title;
+      $title = $search;
+      ob_start();
+        include_once '../app/vues/posts/search.php';
+      $content = ob_get_clean();
+  }
