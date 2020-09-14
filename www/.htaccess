@@ -30,9 +30,9 @@ RewriteEngine on
   RewriteRule ^posts\/search$ index.php?posts=search [L]
 
   # ROUTE DETAIL D'UN POST
-  # PATTERN: post/id
+  # PATTERN: post/id-slug.html
   # URL: index.php?posts=show&id=xxx
-  RewriteRule ^posts\/([1-9][0-9]*)$ index.php?posts=show&id=$1 [L]
+  RewriteRule ^posts\/([1-9][0-9]*)/[a-z1-9][a-z0-9\-]*.html$ index.php?posts=show&id=$1 [L]
 
   # ROUTE LISTE DES POSTS
   # PATTERN: /posts

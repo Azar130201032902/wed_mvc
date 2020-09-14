@@ -22,7 +22,7 @@
           </div>
 
           <div class="blog_details">
-              <a class="d-inline-block" href="posts/<?php echo $post['postId']; ?>">
+              <a class="d-inline-block" href="posts/<?php echo $post['postId']; ?>/<?php echo \slugify($post['postTitle']); ?>.html">
                   <h2><?php echo $post['postTitle']; ?></h2>
               </a>
               <p><?php echo $post['postContent']; ?></p>
