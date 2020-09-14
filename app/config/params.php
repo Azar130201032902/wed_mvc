@@ -17,3 +17,4 @@
   // TITRE
       define('TITRE_POSTS_INDEX', "Home");
       define('TITRE_PAGE_CONTACT', "Contact");
+      define('TITRE_USERS_LOGINFORM', "Connexion au backoffice");

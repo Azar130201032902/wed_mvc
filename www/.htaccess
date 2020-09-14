@@ -11,7 +11,14 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
-  # ROUTE CONTACT
+  # ROUTE DES USERS ------------------------------------------
+  # FORMULAIRE DE LOGIN
+  # PATTERN: users/login/form
+  # URL: index.php?users=loginForm
+  RewriteRule ^users\/login\/form$ index.php?users=loginForm [L]
+
+  # ROUTE DES CONTACTS ---------------------------------------
+  # PAGE CONTACT
   # PATTERN: contact
   # URL: index.php?contact
   RewriteRule ^contact$ index.php?contact [L]

@@ -5,16 +5,21 @@
  */
 
 
+  // ROUTEUR DES USERS
+  if(isset($_GET['users'])):
+    include_once '../app/routeurs/usersRouteur.php';
+
  // PAGE CONTACT
  // PATTERN: /contact
  // CTRL: -
  // ACTION: -
-  if(isset($_GET['contact'])):
+  elseif(isset($_GET['contact'])):
     $title = TITRE_PAGE_CONTACT;
     ob_start();
       include_once '../app/vues/template/partials/contact.php';
     $content = ob_get_clean();
 
+  // ROUTEUR DES POSTS
   elseif(isset($_GET['posts'])):
     include_once '../app/routeurs/postsRouteur.php';
 
