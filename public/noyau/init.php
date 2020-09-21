@@ -2,6 +2,7 @@
 /*
   ./noyau/init.php
  */
+session_start();
 
  include_once '../app/config/params.php';
  include_once '../noyau/connexion.php';

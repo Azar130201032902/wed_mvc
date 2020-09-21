@@ -23,6 +23,7 @@ use App\Modeles\UsersModele;
     // Et vers le formulaire de connexion sinon
     GLOBAL $title;
     if($user):
+      $_SESSION['user'] = $user;
       header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/');
     else:
       header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/public/www/users/login/form');
