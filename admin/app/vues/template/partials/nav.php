@@ -12,7 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Bootstrap theme</a>
+      <a class="navbar-brand" href="#">BACKOFFICE</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -31,6 +31,7 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
+        <li><a href="users/logout">Logout</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

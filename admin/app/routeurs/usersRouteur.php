@@ -8,23 +8,12 @@ include_once '../app/controleurs/usersControleur.php';
 
 
  switch ($_GET['users']):
-   case 'loginForm':
-     // FORMULAIRE DE LOGIN
-     // PATTERN: users/login/form
+   case 'logout':
+     // LOGOUT
+     // PATTERN: users/logout
      // CTRL: usersControleur
      // ACTION: loginForm
-    UsersControleur\loginFormAction($connexion);
+    UsersControleur\logout();
     break;
-
-    case 'submit':
-      // CONNEXION
-      // PATTERN: users/login/submit
-      // CTRL: usersControleur
-      // ACTION: loginForm
-     UsersControleur\loginAction($connexion, [
-       'login' => $_POST['pseudo'],
-       'password' => $_POST['password']
-     ]);
-     break;
 
  endswitch;

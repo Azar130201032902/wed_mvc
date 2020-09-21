@@ -14,3 +14,10 @@ use App\Modeles\UsersModele;
         include_once '../app/vues/users/dashboard.php';
       $content = ob_get_clean();
   }
+
+  function logout() {
+    // Je tue la variable de session 'user'
+      unset($_SESSION['user']);
+    // et je redirige vers le site public
+      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/public/www/');
+  }
