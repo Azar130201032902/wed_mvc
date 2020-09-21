@@ -12,6 +12,11 @@ RewriteEngine on
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
   # ROUTE DES USERS ------------------------------------------
+  # CONNEXION
+  # PATTERN: users/login/submit
+  # URL: index.php?users=submit
+  RewriteRule ^users\/login\/submit$ index.php?users=submit [L]
+
   # FORMULAIRE DE LOGIN
   # PATTERN: users/login/form
   # URL: index.php?users=loginForm

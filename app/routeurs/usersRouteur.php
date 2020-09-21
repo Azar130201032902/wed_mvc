@@ -16,4 +16,15 @@ include_once '../app/controleurs/usersControleur.php';
     UsersControleur\loginFormAction($connexion);
     break;
 
+    case 'submit':
+      // CONNEXION
+      // PATTERN: users/login/submit
+      // CTRL: usersControleur
+      // ACTION: loginForm
+     UsersControleur\loginAction($connexion, [
+       'login' => $_POST['pseudo'],
+       'password' => $_POST['password']
+     ]);
+     break;
+
  endswitch;

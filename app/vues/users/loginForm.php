@@ -12,16 +12,16 @@
               <h2 class="contact-title">Connexion au backoffice</h2>
           </div>
           <div class="col-12">
-              <form class="form-contact contact_form" action="" method="post" id="contactForm" novalidate="novalidate">
+              <form class="form-contact contact_form" action="users/login/submit" method="post" >
                   <div class="row">
                       <div class="col-sm-6">
                           <div class="form-group">
-                              <input class="form-control valid" name="pseudo" id="name" type="text" placeholder="Entrer votre pseudo">
+                              <input class="form-control valid" type="text" name="pseudo" placeholder="Entrer votre pseudo">
                           </div>
                       </div>
                       <div class="col-sm-6">
                           <div class="form-group">
-                              <input class="form-control valid" name="password" id="email" type="password" placeholder="Entrer votre mot de passe">
+                              <input class="form-control valid" type="password" name="password" placeholder="Entrer votre mot de passe">
                           </div>
                       </div>
                   </div>
