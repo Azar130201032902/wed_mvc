@@ -20,3 +20,4 @@
     define('TITRE_CATEGORIES_ADDFORM', "Ajout d'une catégories");
     define('TITRE_CATEGORIES_EDITFORM', "Modification d'une catégories");
     define('TITRE_POSTS_INDEX', "Liste des posts");
+    define('TITRE_POSTS_ADDFORM', "Ajout d'un post");

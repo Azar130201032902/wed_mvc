@@ -5,12 +5,10 @@
 namespace App\Modeles\AuthorsModele;
 
 
-  function findOneById(\PDO $connexion, $id) {
+  function findAll(\PDO $connexion) {
     $sql = "SELECT *
-           FROM authors
-           WHERE id = :id;";
-    $rs = $connexion->prepare($sql);
-    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
-    $rs->execute();
-    return $rs->fetch(\PDO::FETCH_ASSOC);
+            FROM authors
+            ORDER BY firstname ASC;";
+    $rs = $connexion->query($sql);
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
   }

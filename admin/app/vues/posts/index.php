@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <a href="posts/add">Ajouter un post</a>
+    <a href="posts/add/form">Ajouter un post</a>
     <table class="table">
       <thead>
         <tr>

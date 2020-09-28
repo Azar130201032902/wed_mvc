@@ -12,6 +12,11 @@ RewriteEngine on
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
   # ROUTE DES POSTS -------------------------------------------
+    # AJOUT D'UN POST
+    # PATTERN: posts/add/form
+    # URL: index.php?posts=addForm
+    RewriteRule ^posts\/add\/form$ index.php?posts=addForm [L]
+
     # LISTE DES POSTS
     # PATTERN: posts
     # URL: index.php?posts
