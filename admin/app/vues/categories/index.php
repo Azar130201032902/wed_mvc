@@ -2,19 +2,38 @@
 /*
   ./app/vues/categories/index.php
   Variable disponible:
-    $categories = ARRAY(ARRAY(id, name, created_at, nbrPosts))
+    $categories = ARRAY(ARRAY(id, name, created_at))
  */
 ?>
-<aside class="single_sidebar_widget post_category_widget">
-    <h4 class="widget_title">Category</h4>
-    <ul class="list cat-list">
-      <?php foreach ($categories as $categorie): ?>
-        <li>
-            <a href="#" class="d-flex">
-                <p><?php echo $categorie['name']; ?></p>
-                <p>(<?php echo $categorie['nbrPosts']; ?>)</p>
-            </a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-</aside>
+<div class="page-header">
+  <h1><?php echo TITRE_CATEGORIES_INDEX; ?></h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <a href="categories/add/form">Ajouter une catégories</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($categories as $categorie): ?>
+          <tr>
+            <td><?php echo $categorie['id']; ?></td>
+            <td><?php echo $categorie['name']; ?></td>
+            <td><?php echo $categorie['created_at']; ?></td>
+            <td>
+              <a href="categories/edit/form/<?php echo $categorie['id']; ?>">Edit</a>
+            </td>
+            <td>
+              <a href="categories/delete/<?php echo $categorie['id']; ?>" class="delete">Delete</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
-<base href="http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/public/www/" target="_top">
+<base href="http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/" target="_top">
 
 <title>BACKOFFICE | <?php echo $title; ?></title>
 

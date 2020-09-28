@@ -4,12 +4,17 @@
   ROUTEUR PRINCIPAL DE L'APPLICATION
  */
 
+ // ROUTE DES CATEGORIES
+    if(isset($_GET['categories'])):
+      include_once '../app/routeurs/categoriesRouteur.php';
+
  // ROUTE DES USERS
-    if(isset($_GET['users'])):
+    elseif(isset($_GET['users'])):
       include_once '../app/routeurs/usersRouteur.php';
 
  // ROUTE PAR DEFAUT
     else:
       include_once '../app/controleurs/usersControleur.php';
       \App\Controleurs\UsersControleur\dashboardAction($connexion);
+
     endif;

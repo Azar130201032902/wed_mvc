@@ -11,10 +11,41 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
-  # ROUTE DES USERS
-  # PATTERN: users/logout
-  # URL: index.php?users=logout
-  RewriteRule ^users\/logout$ index.php?users=logout [L]
+  # ROUTE DES CATEGORIES ---------------------------------------
+    # MODIFICATION D'UNE CATEGORIE : UPDATE
+    # PATTERN: categories/edit/x
+    # URL: index.php?categories=edit&id=x
+    RewriteRule ^categories\/edit\/([1-9][0-9]*)$ index.php?categories=edit&id=$1 [L]
+
+    # MODIFICATION D'UNE CATEGORIE: FORMULAIRE
+    # PATTERN: categories/edit/form/x
+    # URL: index.php?categories=editForm&id=x
+    RewriteRule ^categories\/edit\/form\/([1-9][0-9]*)$ index.php?categories=editForm&id=$1 [L]
+
+    # SUPPRESSION D'UNE CATEGORIE
+    # PATTERN: categories/delete/x
+    # URL: index.php?categories=delete&id=x
+    RewriteRule ^categories\/delete\/([1-9][0-9]*)$ index.php?categories=delete&id=$1 [L]
+
+    # AJOUTER UNE CATEGORIE: INSERT
+    # PATTERN: categories/add/insert
+    # URL: index.php?categories=add
+    RewriteRule ^categories\/add\/insert$ index.php?categories=add [L]
+
+    # AJOUTER UNE CATEGORIE: FORMULAIRE
+    # PATTERN: categories/add/form
+    # URL: index.php?categories=addForm
+    RewriteRule ^categories\/add\/form$ index.php?categories=addForm [L]
+
+    # LISTE DES CATEGORIES
+    # PATTERN: categories
+    # URL: index.php?categories=index
+    RewriteRule ^categories$ index.php?categories=index [L]
+
+  # ROUTE DES USERS ------------------------------------------
+    # PATTERN: users/logout
+    # URL: index.php?users=logout
+    RewriteRule ^users\/logout$ index.php?users=logout [L]
 
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
