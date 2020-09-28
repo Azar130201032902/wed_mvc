@@ -19,7 +19,8 @@
         <li class="active"><a href="#">Home</a></li>
         <li><a href="categories">Catégories</a></li>
         <li><a href="categories/add/form">Ajouter une catégories</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="posts">Liste des posts</a></li>
+        <li><a href="posts/add">Ajouter un posts</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -5,37 +5,43 @@
     - ARRAY(ARRAY(id, title, content, created_at, image, author_id, categorie_id))
 */
 ?>
-
-<div class="col-lg-8 mb-5 mb-lg-0">
-  <div class="blog_left_sidebar">
-    <?php foreach ($posts as $post): ?>
-      <article class="blog_item">
-          <div class="blog_item_img">
-              <img class="card-img rounded-0" src="assets/img/blog/<?php echo $post['postImage']; ?>" alt="<?php echo $post['postTitle']; ?>">
-              <a href="#" class="blog_item_date">
-                  <h3><?php echo date_format(date_create($post['postDate']), "j"); ?></h3>
-                  <p><?php echo date_format(date_create($post['postDate']), "M"); ?></p>
-              </a>
-          </div>
-
-          <div class="blog_details">
-              <a class="d-inline-block" href="posts/<?php echo $post['postId']; ?>/<?php echo \slugify($post['postTitle']); ?>.html">
-                  <h2><?php echo $post['postTitle']; ?></h2>
-              </a>
-              <p><?php echo $post['postContent']; ?></p>
-              <ul class="blog-info-link">
-                  <li><a href="#"><i class="fa fa-user"></i><?php echo $post['ctgName']; ?></a></li>
-              </ul>
-          </div>
-      </article>
-    <?php endforeach; ?>
-
-    <nav class="blog-pagination justify-content-center d-flex">
-        <ul class="pagination">
-            <li class="page-item">
-                <a href="#" class="page-link" style="width: auto; padding: 0 1em;">More posts</a>
-            </li>
-        </ul>
-    </nav>
+<div class="page-header">
+  <h1><?php echo TITRE_POSTS_INDEX; ?></h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <a href="posts/add">Ajouter un post</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Created at</th>
+          <th>Image</th>
+          <th>Author ID</th>
+          <th>Categorie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($posts as $post): ?>
+          <tr>
+            <td><?php echo $post['postId']; ?></td>
+            <td><?php echo $post['postTitle']; ?></td>
+            <td><?php echo $post['postContent']; ?></td>
+            <td><?php echo date_format(date_create($post['postDate']), "d-m-Y"); ?></td>
+            <td><img src="assets/img/blog/<?php echo $post['postImage']; ?>" alt="<?php echo $post['postId']; ?>" width="50"></td>
+            <td><?php echo $post['authorsName']; ?></td>
+            <td><?php echo $post['ctgName']; ?></td>
+            <td>
+              <a href="#">Edit</a>
+            </td>
+            <td>
+              <a href="#">Delete</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
   </div>
 </div>

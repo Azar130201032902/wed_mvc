@@ -8,19 +8,11 @@ include_once '../app/controleurs/postsControleur.php';
 
 
  switch ($_GET['posts']):
-   case 'show':
-     // DETAIL D'UN POST
-     // PATTERN: /posts/id
-     // CTRL: postsControleur
-     // ACTION: show
-    PostsControleur\showAction($connexion, $_GET['id']);
-    break;
-
-    case 'search':
-      // RECHERCHE D'UN POST
-      // PATTERN: /posts/search
-      // CTRL: postsControleur
-      // ACTION: search
-     PostsControleur\searchAction($connexion, $_POST['search']);
+   default:
+   // LISTE DES POSTS
+   // PATTERN: index.php?users
+   // CTRL: postsControleur
+   // ACTION: index
+      PostsControleur\indexAction($connexion);
    break;
  endswitch;

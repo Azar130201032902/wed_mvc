@@ -5,7 +5,11 @@
  */
 
  // ROUTE DES CATEGORIES
-    if(isset($_GET['categories'])):
+    if(isset($_GET['posts'])):
+      include_once '../app/routeurs/postsRouteur.php';
+
+ // ROUTE DES CATEGORIES
+    elseif(isset($_GET['categories'])):
       include_once '../app/routeurs/categoriesRouteur.php';
 
  // ROUTE DES USERS

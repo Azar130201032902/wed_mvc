@@ -17,32 +17,3 @@ use \App\Modeles\PostsModele;
       include_once '../app/vues/posts/index.php';
     $content = ob_get_clean();
   }
-
-  function showAction(\PDO $connexion, int $id) {
-    // Je demande au modèle le détail d'un post
-      include_once '../app/modeles/postsModele.php';
-      $post = PostsModele\findOneById($connexion, $id);
-
-    // Je demande au modèle l'autheur du post
-      include_once '../app/modeles/authorsModele.php';
-      $author = \App\Modeles\AuthorsModele\findOneById($connexion, $post['authorId']);
-
-    // Je la mets dans le $content
-    GLOBAL $content, $title;
-    $title = $post['postTitle'];
-    ob_start();
-      include_once '../app/vues/posts/show.php';
-    $content = ob_get_clean();
-  }
-
-  function searchAction(\PDO $connexion, string $search) {
-    // Je demande la liste des posts au modèles
-      include_once '../app/modeles/postsModele.php';
-      $posts = PostsModele\findAllBySearch($connexion, $search);
-    // Je charge la vue search dans $content
-      GLOBAL $content, $title;
-      $title = $search;
-      ob_start();
-        include_once '../app/vues/posts/search.php';
-      $content = ob_get_clean();
-  }

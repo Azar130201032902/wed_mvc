@@ -11,11 +11,12 @@ namespace App\Modeles\PostsModele;
                    posts.content AS postContent,
                    posts.created_at AS postDate,
                    posts.image AS postImage,
-                   categories.name AS ctgName
+                   categories.name AS ctgName,
+                   authors.firstName AS authorsName
             FROM posts
             JOIN categories ON posts.categorie_id = categories.id
-            ORDER BY postDate DESC
-            LIMIT 5;";
+            JOIN authors ON posts.author_id = authors.id
+            ORDER BY postDate DESC;";
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
   }
@@ -65,4 +66,4 @@ namespace App\Modeles\PostsModele;
     endfor;
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
-  }	
+  }

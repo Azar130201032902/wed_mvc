@@ -11,6 +11,12 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
+  # ROUTE DES POSTS -------------------------------------------
+    # LISTE DES POSTS
+    # PATTERN: posts
+    # URL: index.php?posts
+    RewriteRule ^posts$ index.php?posts [L]
+
   # ROUTE DES CATEGORIES ---------------------------------------
     # MODIFICATION D'UNE CATEGORIE : UPDATE
     # PATTERN: categories/edit/x
