@@ -74,6 +74,21 @@ RewriteEngine on
     RewriteRule ^tags$ index.php?tags=index [L]
 
   # ROUTE DES POSTS -------------------------------------------
+    # MODIFICATION D'UN POST : UPDATE
+    # PATTERN: posts/edit/x
+    # URL: index.php?posts=edit&id=x
+    RewriteRule ^posts\/edit\/([1-9][0-9]*)$ index.php?posts=edit&id=$1 [L]
+
+    # MODIFICATION D'UN POST: FORMULAIRE
+    # PATTERN: posts/edit/form/x
+    # URL: index.php?posts=editForm&id=x
+    RewriteRule ^posts\/edit\/form\/([1-9][0-9]*)$ index.php?posts=editForm&id=$1 [L]
+
+    # SUPPRESSION D'UN POST
+    # PATTERN: posts/delete/x
+    # URL: index.php?posts=delete&id=x
+    RewriteRule ^posts\/delete\/([1-9][0-9]*)$ index.php?posts=delete&id=$1 [L]
+
     # AJOUT D'UN POST: INSERT
     # PATTERN: posts/add/insert
     # URL: index.php?posts=insert

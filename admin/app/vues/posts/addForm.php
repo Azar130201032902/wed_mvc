@@ -33,8 +33,8 @@
 
   <!-- Menu déroulant dynamique des catégories -->
   <div class="form-group">
-    <label for="author">Categories</label>
-    <select name="author" class="form-control" id="author">
+    <label for="categorie">Categories</label>
+    <select name="categorie" class="form-control" id="categorie">
       <?php foreach ($categories as $categorie): ?>
         <option value="<?php echo $categorie['id']; ?>">
           <?php echo $categorie['name']; ?>

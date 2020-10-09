@@ -34,10 +34,10 @@
             <td><?php echo $post['authorsName']; ?></td>
             <td><?php echo $post['ctgName']; ?></td>
             <td>
-              <a href="#">Edit</a>
+              <a href="posts/edit/form/<?php echo $post['postId']; ?>">Edit</a>
             </td>
             <td>
-              <a href="#">Delete</a>
+              <a href="posts/delete/<?php echo $post['postId']; ?>">Delete</a>
             </td>
           </tr>
         <?php endforeach; ?>

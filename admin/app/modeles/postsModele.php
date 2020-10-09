@@ -22,16 +22,9 @@ namespace App\Modeles\PostsModele;
   }
 
   function findOneById(\PDO $connexion, int $id) {
-    $sql = "SELECT posts.id AS postId,
-                   posts.title AS postTitle,
-                   posts.content AS postContent,
-                   posts.created_at AS postDate,
-                   posts.image AS postImage,
-                   posts.author_id AS authorId,
-                   categories.name AS ctgName
+    $sql = "SELECT *
            FROM posts
-           JOIN categories ON posts.categorie_id = categories.id
-           WHERE posts.id = :id;";
+           WHERE id = :id;";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':id', $id, \PDO::PARAM_INT);
     $rs->execute();
@@ -42,11 +35,13 @@ namespace App\Modeles\PostsModele;
     $sql = "INSERT INTO posts
             SET title = :title,
                 content = :content,
+                categorie_id = :categorie,
                 author_id = :author,
                 created_at = NOW();";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':title', $data['title'], \PDO::PARAM_STR);
     $rs->bindValue(':content', $data['content'], \PDO::PARAM_STR);
+    $rs->bindValue(':categorie', $data['categorie'], \PDO::PARAM_STR);
     $rs->bindValue(':author', $data['author'], \PDO::PARAM_INT);
     $rs->execute();
     return $connexion->lastInsertId();
@@ -60,4 +55,33 @@ namespace App\Modeles\PostsModele;
     $rs->bindValue(':postId', $data['postId'], \PDO::PARAM_INT);
     $rs->bindValue(':tagId', $data['tagId'], \PDO::PARAM_INT);
     return $rs->execute();
+  }
+
+  function deletePostsHasTagsByTagsId(\PDO $connexion, int $postId) {
+    $sql = "DELETE FROM posts_has_tags
+            WHERE post_id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $postId, \PDO::PARAM_INT);
+    return intval($rs->execute());
+  }
+
+  function deleteOneById(\PDO $connexion, int $id) {
+    $sql = "DELETE FROM posts
+            WHERE id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    return intval($rs->execute());
+  }
+
+  function update(\PDO $connexion, array $data = null) {
+    $sql = "UPDATE posts
+            SET title = :title,
+                content = :content,
+                created_at = NOW()
+            WHERE id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $data['id'], \PDO::PARAM_INT);
+    $rs->bindValue(':title', $data['title'], \PDO::PARAM_STR);
+    $rs->bindValue(':content', $data['content'], \PDO::PARAM_STR);
+    return intval($rs->execute());
   }

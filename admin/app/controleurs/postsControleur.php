@@ -51,7 +51,39 @@ use App\Modeles\PostsModele;
           'tagId' => $tagId
         ]);
       endforeach;
+    
+    // Je redirige vers la liste des posts
+      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/posts');
+  }
 
+  function deleteAction(\PDO $connexion, int $id) {
+    // Je demande au modèle de supprimer la liaison n-m
+      include_once '../app/modeles/postsModele.php';
+      $return1 = PostsModele\deletePostsHasTagsByTagsId($connexion, $id);
+
+    // Je demande au modèle de supprimer le post
+      $return2 = PostsModele\deleteOneById($connexion, $id);
+    // Je redirige vers la liste des tags
+      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/posts');
+  }
+
+  function editFormAction(\PDO $connexion, int $id) {
+    // Je demande au modèle le détail d'un post
+      include_once '../app/modeles/postsModele.php';
+      $post = PostsModele\findOneById($connexion, $id);
+
+    // Je charge la vue dans $content
+      GLOBAL $content, $title;
+      $title = TITRE_POSTS_EDITFORM;
+      ob_start();
+        include_once '../app/vues/posts/editForm.php';
+      $content = ob_get_clean();
+  }
+
+  function editAction(\PDO $connexion, array $data = null) {
+    // Je demande au modèle d'update le post
+      include_once '../app/modeles/postsModele.php';
+      $return = PostsModele\update($connexion, $data);
     // Je redirige vers la liste des posts
       header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/posts');
   }

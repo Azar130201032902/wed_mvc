@@ -25,6 +25,7 @@
     // POSTS
     define('TITRE_POSTS_INDEX', "Liste des posts");
     define('TITRE_POSTS_ADDFORM', "Ajout d'un post");
+    define('TITRE_POSTS_EDITFORM', "Modification d'un post");
 
     // TAGS
     define('TITRE_TAGS_INDEX', "Liste des tags");
