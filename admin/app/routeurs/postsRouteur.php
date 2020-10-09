@@ -8,6 +8,14 @@ include_once '../app/controleurs/postsControleur.php';
 
 
  switch ($_GET['posts']):
+   case 'insert':
+     // AJOUT D'UN POSTS: INSERT
+     // PATTERN: index.php?posts=insert
+     // CTRL: postsControleur
+     // ACTION: insert
+        PostsControleur\insertAction($connexion);
+   break;
+
    case 'addForm':
      // AJOUT D'UN POSTS: FORMUALAIRE
      // PATTERN: index.php?posts=addForm

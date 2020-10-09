@@ -19,7 +19,7 @@
           <th>Content</th>
           <th>Created at</th>
           <th>Image</th>
-          <th>Author ID</th>
+          <th>Author</th>
           <th>Categorie</th>
         </tr>
       </thead>

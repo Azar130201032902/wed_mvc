@@ -38,32 +38,26 @@ namespace App\Modeles\PostsModele;
     return $rs->fetch(\PDO::FETCH_ASSOC);
   }
 
-  function findAllBySearch(\PDO $connexion, string $search) {
-    $words = explode(' ', trim($search));
-    $sql = "SELECT DISTINCT posts.id AS postId,
-                            posts.title AS postTitle,
-                            posts.content AS postContent,
-                            posts.created_at AS postDate,
-                            posts.image AS postImage,
-                            posts.author_id AS authorId,
-                            categories.name AS ctgName
-            FROM posts
-            JOIN authors ON posts.author_id = authors.id
-            JOIN categories ON posts.categorie_id = categories.id
-            WHERE 1 = 0 ";
-    for ($i=0; $i<count($words); $i++):
-       $sql .= "OR posts.title       LIKE :word$i
-                OR posts.content     LIKE :word$i
-                OR categories.name   LIKE :word$i
-                OR authors.firstname LIKE :word$i
-                OR authors.lastname  LIKE :word$i ";
-    endfor;
-    $sql .= ";";
-
+  function insertOne(\PDO $connexion, array $data = null) {
+    $sql = "INSERT INTO posts
+            SET title = :title,
+                content = :content,
+                author_id = :author,
+                created_at = NOW();";
     $rs = $connexion->prepare($sql);
-    for ($i=0; $i<count($words); $i++):
-      $rs->bindValue(":word$i", '%'.$words[$i].'%', \PDO::PARAM_STR);
-    endfor;
+    $rs->bindValue(':title', $data['title'], \PDO::PARAM_STR);
+    $rs->bindValue(':content', $data['content'], \PDO::PARAM_STR);
+    $rs->bindValue(':author', $data['author'], \PDO::PARAM_INT);
     $rs->execute();
-    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+    return $connexion->lastInsertId();
+  }
+
+  function insertTagById(\PDO $connexion, array $data){
+    $sql = "INSERT INTO posts_has_tags
+            SET post_id = :postId,
+                tag_id = :tagId";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':postId', $data['postId'], \PDO::PARAM_INT);
+    $rs->bindValue(':tagId', $data['tagId'], \PDO::PARAM_INT);
+    return $rs->execute();
   }
