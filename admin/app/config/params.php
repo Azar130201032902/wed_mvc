@@ -30,3 +30,8 @@
     define('TITRE_TAGS_INDEX', "Liste des tags");
     define('TITRE_TAGS_ADDFORM', "Ajout d'un tag");
     define('TITRE_TAGS_EDITFORM', "Modification d'un tag");
+
+    // TAGS
+    define('TITRE_AUTHORS_INDEX', "Liste des authors");
+    define('TITRE_AUTHORS_ADDFORM', "Ajout d'un author");
+    define('TITRE_AUTHORS_EDITFORM', "Modification d'un author");

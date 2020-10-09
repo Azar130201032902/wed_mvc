@@ -11,6 +11,37 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
+  # ROUTE DES AUTHORS ---------------------------------------
+    # MODIFICATION D'UN AUTHOR : UPDATE
+    # PATTERN: authors/edit/x
+    # URL: index.php?authors=edit&id=x
+    RewriteRule ^authors\/edit\/([1-9][0-9]*)$ index.php?authors=edit&id=$1 [L]
+
+    # MODIFICATION D'UN AUTHOR: FORMULAIRE
+    # PATTERN: authors/edit/form/x
+    # URL: index.php?authors=editForm&id=x
+    RewriteRule ^authors\/edit\/form\/([1-9][0-9]*)$ index.php?authors=editForm&id=$1 [L]
+
+    # SUPPRESSION D'UN AUTHOR
+    # PATTERN: authors/delete/x
+    # URL: index.php?auhtors=delete&id=x
+    RewriteRule ^authors\/delete\/([1-9][0-9]*)$ index.php?authors=delete&id=$1 [L]
+
+    # AJOUTER UN AUTHOR: INSERT
+    # PATTERN: authors/add/insert
+    # URL: index.php?authors=add
+    RewriteRule ^authors\/add\/insert$ index.php?authors=add [L]
+
+    # AJOUTER UN AUTHOR: FORMULAIRE
+    # PATTERN: authors/add/form
+    # URL: index.php?authors=addForm
+    RewriteRule ^authors\/add\/form$ index.php?authors=addForm [L]
+
+    # LISTE DES AUTHORS
+    # PATTERN: authors
+    # URL: index.php?authors=index
+    RewriteRule ^authors$ index.php?authors=index [L]
+
   # ROUTE DES TAGS ---------------------------------------
     # MODIFICATION D'UN TAG : UPDATE
     # PATTERN: tags/edit/x

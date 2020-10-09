@@ -4,8 +4,12 @@
   ROUTEUR PRINCIPAL DE L'APPLICATION
  */
 
+ // ROUTE DES AUHTORS
+    if(isset($_GET['authors'])):
+      include_once '../app/routeurs/authorsRouteur.php';
+
  // ROUTE DES TAGS
-    if(isset($_GET['tags'])):
+    elseif(isset($_GET['tags'])):
       include_once '../app/routeurs/tagsRouteur.php';
 
  // ROUTE DES POSTS
