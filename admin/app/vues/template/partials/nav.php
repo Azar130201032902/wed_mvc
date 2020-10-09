@@ -17,20 +17,24 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="categories">Catégories</a></li>
-        <li><a href="categories/add/form">Ajouter une catégories</a></li>
-        <li><a href="posts">Liste des posts</a></li>
-        <li><a href="posts/add/form">Ajouter un posts</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li class="dropdown-header">Categéories</li>
+            <li><a href="categories">Liste des catégories</a></li>
+            <li><a href="categories/add/form">Ajouter une catégories</a></li>
             <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
+            <li class="dropdown-header">Tags</li>
+            <li><a href="categories">Liste des tags</a></li>
+            <li><a href="categories/add/form">Ajouter un tag</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Authors</li>
+            <li><a href="categories">Liste des authors</a></li>
+            <li><a href="categories/add/form">Ajouter un author</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Posts</li>
+            <li><a href="posts">Liste des posts</a></li>
+            <li><a href="posts/add/form">Ajouter un posts</a></li>
           </ul>
         </li>
         <li><a href="users/logout">Logout</a></li>
