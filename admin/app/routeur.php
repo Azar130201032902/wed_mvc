@@ -4,8 +4,12 @@
   ROUTEUR PRINCIPAL DE L'APPLICATION
  */
 
- // ROUTE DES CATEGORIES
-    if(isset($_GET['posts'])):
+ // ROUTE DES TAGS
+    if(isset($_GET['tags'])):
+      include_once '../app/routeurs/tagsRouteur.php';
+
+ // ROUTE DES POSTS
+    elseif(isset($_GET['posts'])):
       include_once '../app/routeurs/postsRouteur.php';
 
  // ROUTE DES CATEGORIES

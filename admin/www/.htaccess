@@ -11,6 +11,37 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
+  # ROUTE DES TAGS ---------------------------------------
+    # MODIFICATION D'UN TAG : UPDATE
+    # PATTERN: tags/edit/x
+    # URL: index.php?tags=edit&id=x
+    RewriteRule ^tags\/edit\/([1-9][0-9]*)$ index.php?tags=edit&id=$1 [L]
+
+    # MODIFICATION D'UN TAG: FORMULAIRE
+    # PATTERN: tags/edit/form/x
+    # URL: index.php?tags=editForm&id=x
+    RewriteRule ^tags\/edit\/form\/([1-9][0-9]*)$ index.php?tags=editForm&id=$1 [L]
+
+    # SUPPRESSION D'UN TAG
+    # PATTERN: tags/delete/x
+    # URL: index.php?tags=delete&id=x
+    RewriteRule ^tags\/delete\/([1-9][0-9]*)$ index.php?tags=delete&id=$1 [L]
+
+    # AJOUTER UN TAG: INSERT
+    # PATTERN: tags/add/insert
+    # URL: index.php?tags=add
+    RewriteRule ^tags\/add\/insert$ index.php?tags=add [L]
+
+    # AJOUTER UN TAG: FORMULAIRE
+    # PATTERN: tags/add/form
+    # URL: index.php?tags=addForm
+    RewriteRule ^tags\/add\/form$ index.php?tags=addForm [L]
+
+    # LISTE DES TAGS
+    # PATTERN: tags
+    # URL: index.php?tags=index
+    RewriteRule ^tags$ index.php?tags=index [L]
+
   # ROUTE DES POSTS -------------------------------------------
     # AJOUT D'UN POST: INSERT
     # PATTERN: posts/add/insert

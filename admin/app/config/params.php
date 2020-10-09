@@ -16,8 +16,17 @@
 
   // TITRE
     define('TITRE_USERS_DASHBOARD', "Dashboard");
+
+    // CATEGORIES
     define('TITRE_CATEGORIES_INDEX', "Liste des categories");
-    define('TITRE_CATEGORIES_ADDFORM', "Ajout d'une catégories");
-    define('TITRE_CATEGORIES_EDITFORM', "Modification d'une catégories");
+    define('TITRE_CATEGORIES_ADDFORM', "Ajout d'une catégorie");
+    define('TITRE_CATEGORIES_EDITFORM', "Modification d'une catégorie");
+
+    // POSTS
     define('TITRE_POSTS_INDEX', "Liste des posts");
     define('TITRE_POSTS_ADDFORM', "Ajout d'un post");
+
+    // TAGS
+    define('TITRE_TAGS_INDEX', "Liste des tags");
+    define('TITRE_TAGS_ADDFORM', "Ajout d'un tag");
+    define('TITRE_TAGS_EDITFORM', "Modification d'un tag");

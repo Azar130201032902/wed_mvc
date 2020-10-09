@@ -25,12 +25,12 @@
             <li><a href="categories/add/form">Ajouter une catégories</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Tags</li>
-            <li><a href="categories">Liste des tags</a></li>
-            <li><a href="categories/add/form">Ajouter un tag</a></li>
+            <li><a href="tags">Liste des tags</a></li>
+            <li><a href="tags/add/form">Ajouter un tag</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Authors</li>
-            <li><a href="categories">Liste des authors</a></li>
-            <li><a href="categories/add/form">Ajouter un author</a></li>
+            <li><a href="authors">Liste des authors</a></li>
+            <li><a href="authors/add/form">Ajouter un author</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Posts</li>
             <li><a href="posts">Liste des posts</a></li>

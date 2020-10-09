@@ -5,13 +5,13 @@
     /
  */
 ?>
-<h1>Ajout d'une catégorie</h1>
+<h1>Ajout d'un tag</h1>
 <div>
-  <a href="categories">Retour à la liste des catégories</a>
+  <a href="tags">Retour à la liste des tags</a>
 </div>
-<form action="categories/add/insert" method="post">
+<form action="tags/add/insert" method="post">
   <div>
-    <label for="name">Nom de la catégorie</label>
+    <label for="name">Nom du tag</label>
     <input type="text" name="name" id="name" />
   </div>
   <div>
