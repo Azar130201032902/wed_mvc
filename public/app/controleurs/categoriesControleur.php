@@ -11,5 +11,5 @@ use \App\Modeles\CategoriesModele;
       include_once '../app/modeles/categoriesModele.php';
       $categories = CategoriesModele\findAll($connexion);
     // Je la mets directement dans la vue index
-    include_once '../app/vues/categories/index.php';
+      include_once '../app/vues/categories/index.php';
   }

@@ -5,6 +5,7 @@
 session_start();
 include_once '../noyau/protection.php';
 
- include_once '../app/config/params.php';
- include_once '../noyau/connexion.php';
- include_once '../noyau/functions.php';
+   require_once '../noyau/constantes.php';
+   require_once '../app/config/params.php';
+   require_once '../noyau/connexion.php';
+   require_once '../noyau/functions.php';

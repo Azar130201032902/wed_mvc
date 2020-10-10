@@ -11,5 +11,5 @@ use \App\Modeles\TagsModele;
       include_once '../app/modeles/tagsModele.php';
       $tags = TagsModele\findAll($connexion);
     // Je la mets directement dans la vue index
-    include_once '../app/vues/tags/index.php';
+      include_once '../app/vues/tags/index.php';
   }

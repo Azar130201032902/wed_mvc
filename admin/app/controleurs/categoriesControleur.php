@@ -32,7 +32,7 @@ use \App\Modeles\CategoriesModele;
       include_once '../app/modeles/categoriesModele.php';
       $id = CategoriesModele\insert($connexion, $data);
     // Je redirige vers la liste des catégories
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/categories');
+      header('location: ' . BASE_URL_ADMIN . 'categories');
 
   }
 
@@ -41,7 +41,7 @@ use \App\Modeles\CategoriesModele;
       include_once '../app/modeles/categoriesModele.php';
       $return = CategoriesModele\delete($connexion, $id);
     // Je redirige vers la liste des catégories
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/categories');
+      header('location: ' . BASE_URL_ADMIN . 'categories');
   }
 
   function editFormAction(\PDO $connexion, int $id) {
@@ -62,5 +62,5 @@ use \App\Modeles\CategoriesModele;
       include_once '../app/modeles/categoriesModele.php';
       $return = CategoriesModele\update($connexion, $data);
     // Je redirige vers la liste des catégories
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/categories');
+      header('location: ' . BASE_URL_ADMIN . 'categories');
   }

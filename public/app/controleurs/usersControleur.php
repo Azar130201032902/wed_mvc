@@ -21,11 +21,11 @@ use App\Modeles\UsersModele;
       $user = UsersModele\findOneByLoginPwd($connexion, $data);
     // Je redirige vers le backoffice si OK
     // Et vers le formulaire de connexion sinon
-    GLOBAL $title;
-    if($user):
-      $_SESSION['user'] = $user;
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/');
-    else:
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/public/www/users/login/form');
-    endif;
+      GLOBAL $title;
+      if($user):
+        $_SESSION['user'] = $user;
+        header('location: ' . BASE_URL_ADMIN);
+      else:
+        header('location: ' . BASE_URL_PUBLIC . 'users/login/form');
+      endif;
   }

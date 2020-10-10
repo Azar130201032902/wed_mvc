@@ -28,7 +28,7 @@
           <tr>
             <td><?php echo $post['postId']; ?></td>
             <td><?php echo $post['postTitle']; ?></td>
-            <td><?php echo $post['postContent']; ?></td>
+            <td><?php echo \truncate($post['postContent']); ?></td>
             <td><?php echo date_format(date_create($post['postDate']), "d-m-Y"); ?></td>
             <td><img src="assets/img/blog/<?php echo $post['postImage']; ?>" alt="<?php echo $post['postId']; ?>" width="50"></td>
             <td><?php echo $post['authorsName']; ?></td>

@@ -32,7 +32,7 @@ use \App\Modeles\AuthorsModele;
       include_once '../app/modeles/authorsModele.php';
       $id = AuthorsModele\insert($connexion, $data);
     // Je redirige vers la liste des catégories
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/authors');
+      header('location: ' . BASE_URL_ADMIN . 'authors');
 
   }
 
@@ -41,7 +41,7 @@ use \App\Modeles\AuthorsModele;
       include_once '../app/modeles/authorsModele.php';
       $return = AuthorsModele\delete($connexion, $id);
     // Je redirige vers la liste des catégories
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/authors');
+      header('location: ' . BASE_URL_ADMIN . 'authors');
   }
 
   function editFormAction(\PDO $connexion, int $id) {
@@ -62,5 +62,5 @@ use \App\Modeles\AuthorsModele;
       include_once '../app/modeles/authorsModele.php';
       $return = AuthorsModele\update($connexion, $data);
     // Je redirige vers la liste des catégories
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/authors');
+      header('location: ' . BASE_URL_ADMIN . 'authors');
   }

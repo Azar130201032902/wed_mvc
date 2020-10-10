@@ -22,7 +22,7 @@
               <a class="d-inline-block" href="posts/<?php echo $post['postId']; ?>/<?php echo \slugify($post['postTitle']); ?>.html">
                   <h2><?php echo $post['postTitle']; ?></h2>
               </a>
-              <p><?php echo $post['postContent']; ?></p>
+              <p><?php echo \truncate($post['postContent'], 200); ?></p>
               <ul class="blog-info-link">
                   <li><a href="#"><i class="fa fa-user"></i><?php echo $post['ctgName']; ?></a></li>
               </ul>

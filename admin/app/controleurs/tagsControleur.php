@@ -32,7 +32,7 @@ use \App\Modeles\TagsModele;
       include_once '../app/modeles/tagsModele.php';
       $id = TagsModele\insert($connexion, $data);
     // Je redirige vers la liste des tags
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/tags');
+      header('location: ' . BASE_URL_ADMIN . 'tags');
 
   }
 
@@ -45,7 +45,7 @@ use \App\Modeles\TagsModele;
       include_once '../app/modeles/tagsModele.php';
       $return2 = TagsModele\deleteOneById($connexion, $id);
     // Je redirige vers la liste des tags
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/tags');
+      header('location: ' . BASE_URL_ADMIN . 'tags');
   }
 
   function editFormAction(\PDO $connexion, int $id) {
@@ -66,5 +66,5 @@ use \App\Modeles\TagsModele;
       include_once '../app/modeles/tagsModele.php';
       $return = TagsModele\update($connexion, $data);
     // Je redirige vers la liste des tags
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/tags');
+      header('location: ' . BASE_URL_ADMIN . 'tags');
   }

@@ -19,5 +19,5 @@ use App\Modeles\UsersModele;
     // Je tue la variable de session 'user'
       unset($_SESSION['user']);
     // et je redirige vers le site public
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/public/www/');
+      header('location: ' . BASE_URL_PUBLIC);
   }

@@ -11,11 +11,11 @@ use \App\Modeles\PostsModele;
       include_once '../app/modeles/postsModele.php';
       $posts = PostsModele\findAll($connexion);
     // Je la mets dans le $content
-    GLOBAL $content, $title;
-    $title = TITRE_POSTS_INDEX;
-    ob_start();
-      include_once '../app/vues/posts/index.php';
-    $content = ob_get_clean();
+      GLOBAL $content, $title;
+      $title = TITRE_POSTS_INDEX;
+      ob_start();
+        include_once '../app/vues/posts/index.php';
+      $content = ob_get_clean();
   }
 
   function showAction(\PDO $connexion, int $id) {
@@ -28,11 +28,11 @@ use \App\Modeles\PostsModele;
       $author = \App\Modeles\AuthorsModele\findOneById($connexion, $post['authorId']);
 
     // Je la mets dans le $content
-    GLOBAL $content, $title;
-    $title = $post['postTitle'];
-    ob_start();
-      include_once '../app/vues/posts/show.php';
-    $content = ob_get_clean();
+      GLOBAL $content, $title;
+      $title = $post['postTitle'];
+      ob_start();
+        include_once '../app/vues/posts/show.php';
+      $content = ob_get_clean();
   }
 
   function searchAction(\PDO $connexion, string $search) {

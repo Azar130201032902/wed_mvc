@@ -51,9 +51,9 @@ use App\Modeles\PostsModele;
           'tagId' => $tagId
         ]);
       endforeach;
-    
+
     // Je redirige vers la liste des posts
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/posts');
+      header('location: ' . BASE_URL_ADMIN . 'posts');
   }
 
   function deleteAction(\PDO $connexion, int $id) {
@@ -64,7 +64,7 @@ use App\Modeles\PostsModele;
     // Je demande au modèle de supprimer le post
       $return2 = PostsModele\deleteOneById($connexion, $id);
     // Je redirige vers la liste des tags
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/posts');
+      header('location: ' . BASE_URL_ADMIN . 'posts');
   }
 
   function editFormAction(\PDO $connexion, int $id) {
@@ -85,5 +85,5 @@ use App\Modeles\PostsModele;
       include_once '../app/modeles/postsModele.php';
       $return = PostsModele\update($connexion, $data);
     // Je redirige vers la liste des posts
-      header('location: http://localhost:8888/SCRIPT_SERVEUR/wed_mvc/admin/www/posts');
+      header('location: ' . BASE_URL_ADMIN . 'posts');
   }

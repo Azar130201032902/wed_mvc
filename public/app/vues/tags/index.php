@@ -10,7 +10,7 @@
     <ul class="list">
       <?php foreach ($tags as $tag): ?>
         <li>
-            <a href="#"><?php echo $tag['name']; ?></a>
+            <a href="#"><?php echo $tag['name']; ?> (<?php echo $tag['nbrPosts']; ?>)</a>
         </li>
       <?php endforeach; ?>
     </ul>
