@@ -73,15 +73,29 @@ namespace App\Modeles\PostsModele;
     return intval($rs->execute());
   }
 
-  function update(\PDO $connexion, array $data = null) {
+  function update(\PDO $connexion, int $id, array $data = null) {
     $sql = "UPDATE posts
             SET title = :title,
                 content = :content,
-                created_at = NOW()
+                created_at = NOW(),
+                author_id = :author,
+                categorie_id = :categorie
             WHERE id = :id;";
     $rs = $connexion->prepare($sql);
-    $rs->bindValue(':id', $data['id'], \PDO::PARAM_INT);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
     $rs->bindValue(':title', $data['title'], \PDO::PARAM_STR);
     $rs->bindValue(':content', $data['content'], \PDO::PARAM_STR);
+    $rs->bindValue(':author', $data['author'], \PDO::PARAM_INT);
+    $rs->bindValue(':categorie', $data['categorie'], \PDO::PARAM_INT);
     return intval($rs->execute());
+  }
+
+  function findTagsByPostId(\PDO $connexion, int $id) {
+    $sql = "SELECT tag_id
+            FROM posts_has_tags
+            WHERE post_id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(\PDO::FETCH_COLUMN);
   }

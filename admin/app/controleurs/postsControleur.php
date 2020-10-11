@@ -72,6 +72,22 @@ use App\Modeles\PostsModele;
       include_once '../app/modeles/postsModele.php';
       $post = PostsModele\findOneById($connexion, $id);
 
+    // Je demande au modèle les tags du post
+      include_once '../app/modeles/postsModele.php';
+      $postTags = PostsModele\findTagsByPostId($connexion, $id);
+
+    // Je vais chercher les auteurs
+      include_once '../app/modeles/authorsModele.php';
+      $authors = \App\Modeles\AuthorsModele\findAll($connexion);
+
+    // Je vais chercher les categories
+      include_once '../app/modeles/categoriesModele.php';
+      $categories = \App\Modeles\CategoriesModele\findAll($connexion);
+
+    // Je vais chercher les tags
+      include_once '../app/modeles/tagsModele.php';
+      $tags = \App\Modeles\tagsModele\findAll($connexion);
+
     // Je charge la vue dans $content
       GLOBAL $content, $title;
       $title = TITRE_POSTS_EDITFORM;
@@ -80,10 +96,24 @@ use App\Modeles\PostsModele;
       $content = ob_get_clean();
   }
 
-  function editAction(\PDO $connexion, array $data = null) {
+  function editAction(\PDO $connexion, int $id) {
+    // Je demande au modèle de supprimer les tags correspondants
+      include_once '../app/modeles/postsModele.php';
+      $return1 = PostsModele\deletePostsHasTagsByTagsId($connexion, $id);
+
     // Je demande au modèle d'update le post
       include_once '../app/modeles/postsModele.php';
-      $return = PostsModele\update($connexion, $data);
+      $return2 = PostsModele\update($connexion, $id, $_POST);
+      var_dump($return2); die();
+
+    // Je demande au modèle d'ajouter les tags correspondants
+      foreach ($_POST['tags'] as $tagId):
+        $return = PostsModele\insertTagById($connexion, [
+          'postId' => $id,
+          'tagId' => $tagId
+        ]);
+      endforeach;
+
     // Je redirige vers la liste des posts
       header('location: ' . BASE_URL_ADMIN . 'posts');
   }

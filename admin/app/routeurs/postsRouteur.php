@@ -15,7 +15,7 @@ include_once '../app/controleurs/postsControleur.php';
    // ACTION: addForm
    PostsControleur\addFormAction($connexion);
    break;
-   
+
    case 'insert':
      // AJOUT D'UN POSTS: INSERT
      // PATTERN: index.php?posts=insert
@@ -46,11 +46,7 @@ include_once '../app/controleurs/postsControleur.php';
        // PATTERN: index.php?posts=edit&id=x
        // CTRL: PostsControleur
        // ACTION: edit
-      PostsControleur\editAction($connexion, [
-        'id' => $_GET['id'],
-        'title' => $_POST['title'],
-        'content' => $_POST['content']
-      ]);
+      PostsControleur\editAction($connexion, $_GET['id']);
       break;
 
    default:
